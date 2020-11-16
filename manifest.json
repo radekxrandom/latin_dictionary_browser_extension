@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Latin dictionary",
+  "version": "1",
+  "background": {
+    "scripts": ["main.js"],
+    "persistent": false,
+    "default_icon": {
+      "16": "logo.png",
+      "24": "logo_big.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*""],
+      "js": ["contentScript.js"],
+      "css": ["contentscript.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "permissions": ["contextMenus", "activeTab"],
+  "icons": {
+    "16": "logo.png",
+    "24": "logo_big.png"
+  },
+  "web_accessible_resources": ["*.ttf"]
+}

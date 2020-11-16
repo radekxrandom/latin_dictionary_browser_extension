@@ -1,0 +1,112 @@
+@font-face {
+  font-weight: normal;
+  font-family: "source";
+  src: url("chrome-extension://__MSG_@@extension_id__/font.ttf");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "open";
+  src: url("chrome-extension://__MSG_@@extension_id__/opreg.ttf");
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: "open";
+  src: url("chrome-extension://__MSG_@@extension_id__/opsemi.ttf");
+}
+
+@font-face {
+  font-weight: bolder;
+  font-family: "open";
+  src: url("chrome-extension://__MSG_@@extension_id__/opbold.ttf");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "lora";
+  src: url("chrome-extension://__MSG_@@extension_id__/lorareg.ttf");
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: "lora";
+  src: url("chrome-extension://__MSG_@@extension_id__/loramed.ttf");
+}
+
+@font-face {
+  font-weight: lighter;
+  font-family: "work";
+  src: url("chrome-extension://__MSG_@@extension_id__/worklight.ttf");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "work";
+  src: url("chrome-extension://__MSG_@@extension_id__/workreg.ttf");
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: "work";
+  src: url("chrome-extension://__MSG_@@extension_id__/workbold.ttf");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "qtr";
+  src: url("chrome-extension://__MSG_@@extension_id__/qreg.ttf");
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: "qtr";
+  src: url("chrome-extension://__MSG_@@extension_id__/qbold.ttf");
+}
+
+.selection_bubble {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem 1rem 0.1rem;
+  background: gainsboro;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  font-family: "work";
+}
+.selection_bubble:after,
+.selection_bubble:after {
+  z-index: -1;
+  position: absolute;
+  top: 98.1%;
+  left: 70%;
+  margin-left: -60%;
+  content: "";
+  width: 0;
+  font-family: "work";
+  height: 0;
+  border-top: solid 10px gainsboro;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+}
+
+.latin_word {
+  width: -webkit-fill-available;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: -0.2rem;
+  font-weight: lighter;
+  font-family: "qtr";
+  font-size: 1.5rem;
+}
+
+#closebtn {
+  color: #3434ff;
+  float: right;
+}
+
+#closebtn:hover {
+  color: #672929;
+  cursor: pointer;
+}
