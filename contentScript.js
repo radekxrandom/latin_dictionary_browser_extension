@@ -1,31 +1,25 @@
-var clickedEl = null;
-var x;
-var y;
-var bubbleDOM = document.createElement("div");
+let x;
+let y;
+let bubbleDOM = document.createElement("div");
 bubbleDOM.setAttribute("class", "selection_bubble");
 document.body.appendChild(bubbleDOM);
 
 document.addEventListener(
   "contextmenu",
-  function(event) {
-    /*  clickedEl = event.target;
-    y = event.pageY - 25;
-    x = event.pageX; */
-    var r = window
+  event => {
+    let r = window
       .getSelection()
       .getRangeAt(0)
       .getBoundingClientRect();
-    y = r.top - 120;
+    y = r.top - 150;
     x = (r.right + r.left) / 2;
-    console.log(r);
   },
   true
 );
 
-chrome.runtime.onMessage.addListener(function(request, sender) {
-  if (request.name == "getClickedEl") {
-    console.log(clickedEl);
-    renderBubble(x, y, request.msg);
+chrome.runtime.onMessage.addListener((request, sender) => {
+  if (request.name === "showTooltip") {
+    renderBubble(x, y, request.translated);
   }
 });
 
@@ -37,12 +31,11 @@ const createTranslatedHtml = wordsArr => {
   return word;
 };
 
-function renderBubble(mouseX, mouseY, selection) {
-  console.log(selection.translations);
+const renderBubble = (x, y, selection) => {
   const trs = createTranslatedHtml(selection.translations);
 
-  bubbleDOM.style.top = mouseY + "px";
-  bubbleDOM.style.left = mouseX + "px";
+  bubbleDOM.style.top = y + "px";
+  bubbleDOM.style.left = x + "px";
   bubbleDOM.style.padding = "0.4rem";
   bubbleDOM.style.background = "gainsboro";
   bubbleDOM.style.visibility = "visible";
@@ -53,7 +46,7 @@ function renderBubble(mouseX, mouseY, selection) {
   </div>
   `;
   document.getElementById("closebtn").addEventListener("click", closeTooltip);
-}
+};
 
 const closeTooltip = e => {
   const tooltip = document.getElementsByClassName("selection_bubble")[0];

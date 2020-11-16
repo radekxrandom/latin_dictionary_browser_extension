@@ -1,67 +1,43 @@
 @font-face {
   font-weight: normal;
-  font-family: "source";
-  src: url("chrome-extension://__MSG_@@extension_id__/font.ttf");
-}
-
-@font-face {
-  font-weight: normal;
-  font-family: "open";
-  src: url("chrome-extension://__MSG_@@extension_id__/opreg.ttf");
-}
-
-@font-face {
-  font-weight: bold;
-  font-family: "open";
-  src: url("chrome-extension://__MSG_@@extension_id__/opsemi.ttf");
-}
-
-@font-face {
-  font-weight: bolder;
-  font-family: "open";
-  src: url("chrome-extension://__MSG_@@extension_id__/opbold.ttf");
-}
-
-@font-face {
-  font-weight: normal;
   font-family: "lora";
-  src: url("chrome-extension://__MSG_@@extension_id__/lorareg.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/lorareg.ttf");
 }
 
 @font-face {
   font-weight: bold;
   font-family: "lora";
-  src: url("chrome-extension://__MSG_@@extension_id__/loramed.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/loramed.ttf");
 }
 
 @font-face {
   font-weight: lighter;
   font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/worklight.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/worklight.ttf");
 }
 
 @font-face {
   font-weight: normal;
   font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/workreg.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/workreg.ttf");
 }
 
 @font-face {
   font-weight: bold;
   font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/workbold.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/workbold.ttf");
 }
 
 @font-face {
   font-weight: normal;
   font-family: "qtr";
-  src: url("chrome-extension://__MSG_@@extension_id__/qreg.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/qreg.ttf");
 }
 
 @font-face {
   font-weight: bold;
   font-family: "qtr";
-  src: url("chrome-extension://__MSG_@@extension_id__/qbold.ttf");
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/qbold.ttf");
 }
 
 .selection_bubble {
