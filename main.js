@@ -42,13 +42,24 @@ const getTranslation = async word => {
 		}
 	);
 	const resText = await result.text();
-	const matches = resText.match(/(?<=<span class="english">).*(?=<\/span>)/gi);
+	let matches = resText.match(/(?<=<span class="english">).*(?=<\/span>)/gi);
+	const shouldntMatch = matches[0].match(/<span class="paradigma">/gi);
 	if (!matches) {
 		throw new Error();
 	}
+	if (shouldntMatch) {
+		if (matches.length > 1) {
+			matches = matches.slice(1);
+		} else {
+			throw new Error();
+		}
+	}
+	const translationObj = {
+		words: matches
+	}; //matches.map(el => ({word: el}));
 	const content = {
 		latinWord: word,
-		translations: matches
+		translations: [translationObj]
 	};
 	return content;
 };
@@ -67,24 +78,44 @@ const altTranslation = async word => {
 	const translation = resText.match(
 		/(?<=<span class="lemma_definition">)[\w,\n\t\s]*(?=(\s+)?<\/span>)/gi
 	);
-	const lemma = resText.match(/(?<=<h4 class=\"la\">).*(?=<\/h4>)/gi);
+	const lemma = resText.match(
+		/(?<=<div class="lemma_header">[\w,\n\t\s]*<h4 class=\"la\">).*(?=<\/h4>)/gi
+	);
 	console.log(lemma);
 	console.log(translation);
 	let translatedArr;
 	let content;
 	if (lemma.length > 1) {
+		const pach = [
+			...resText.matchAll(
+				/(?<=<h4 class="la">)(\w+)<\/h4>[\w,\n\t\s]*(<span class="lemma_definition">)([,\w\s]*)(?=(\s+)?<\/span>)/gi
+			)
+		];
 		translatedArr = translation.map(el => el.trim());
-		const data = lemma.map((el, i) => el + " - " + translatedArr[i]);
+		//const data = lemma.map((el, i) => el + " - " + translatedArr[i]);
+		const pata = pach.map((el, i) => {
+			const index = el[1].length - 1;
+			const title = !isNaN(el[1][index]) ? el[1].slice(0, index) : el[1];
+			const words = el[3].
+				replace(/[↵]+/g, "").
+				trim().
+				split(",");
+			const segment = {
+				title,
+				words
+			};
+			return segment;
+		});
 		content = {
 			latinWord: "Multiple words found",
-			translations: data
+			translations: pata
 		};
 	} else {
 		translatedArr = translation[0].split(",");
 		translatedArr[0] = translatedArr[0].trim();
 		content = {
 			latinWord: lemma[0],
-			translations: translatedArr
+			translations: [{words: translatedArr}]
 		};
 	}
 	console.log(translatedArr);
@@ -102,11 +133,7 @@ const checkTranslation = async (selection, tab) => {
 	}
 	let translated;
 	const latinWord = selection.trim();
-	/*
-	 *	if (selection.match(/(?<=\w)que$/)) {
-	 *	latinWord = selection.match(/(\w+)que$/)[1];
-	 *	}
-	 */
+
 	try {
 		const root = await getRoot(latinWord);
 		translated = await getTranslation(root);
