@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Latin dictionary",
-  "version": "1",
+  "version": "4",
   "background": {
     "scripts": ["main.js"],
     "persistent": false,
@@ -19,7 +19,7 @@
       "all_frames": true
     }
   ],
-  "permissions": ["declarativeContent", "contextMenus", "activeTab"],
+  "permissions": ["contextMenus"],
   "icons": {
     "16": "logo.png",
     "24": "logo_big.png"
