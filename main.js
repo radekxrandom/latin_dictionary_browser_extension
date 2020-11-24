@@ -124,15 +124,16 @@ const altTranslation = async word => {
 };
 
 const checkTranslation = async (selection, tab) => {
-	if (selection.split(" ").length > 1) {
+	let translated;
+	const latinWord = selection.trim();
+
+	if (latinWord.split(" ").length > 1) {
 		chrome.extension.
 			getBackgroundPage().
 			console.log("I can translate only one word at the time");
 		console.log("I can translate only one word at the time");
 		return;
 	}
-	let translated;
-	const latinWord = selection.trim();
 
 	try {
 		const root = await getRoot(latinWord);
