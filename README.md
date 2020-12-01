@@ -1,5 +1,7 @@
 Latin to English translator. Well it is limited to one word at a time and shows it's definitions instead of a translation, so I guess it would be best described as an automated dictionary tooltip of sorts.
 
+![sc](https://i.imgur.com/LNP2OF0.png)
+
 - [Chrome web store](https://chrome.google.com/webstore/detail/latin-dictionary/gnokbeehdoiaaalamhekhopdgiamfggp)
 - [Firefox's extensions place](https://addons.mozilla.org/en-US/firefox/addon/latin-english-dictionary/)
 
