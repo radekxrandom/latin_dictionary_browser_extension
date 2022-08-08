@@ -1,44 +1,4 @@
-@font-face {
-  font-weight: normal;
-  font-family: "lora";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/lorareg.ttf");
-}
-
-@font-face {
-  font-weight: bold;
-  font-family: "lora";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/loramed.ttf");
-}
-
-@font-face {
-  font-weight: lighter;
-  font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/worklight.ttf");
-}
-
-@font-face {
-  font-weight: normal;
-  font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/workreg.ttf");
-}
-
-@font-face {
-  font-weight: bold;
-  font-family: "work";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/workbold.ttf");
-}
-
-@font-face {
-  font-weight: normal;
-  font-family: "qtr";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/qreg.ttf");
-}
-
-@font-face {
-  font-weight: bold;
-  font-family: "qtr";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/qbold.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Work+Sans:wght@300&display=swap');
 
 .translationTooltip {
   overflow: auto;
@@ -51,14 +11,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  /* padding: 0.5rem 1rem 0.1rem;
-  padding: 7px 21px 0.1rem;
-  psadding: 1rem 1.5rem;*/
   background: #f1f1f1;
   min-width: 15rem;
   font-size: 14px;
   border-radius: 3px;
-  font-family: "work";
+  font-family: 'Montserrat', sans-serif;
   box-shadow: 0 4.8px 5.7px rgba(0, 0, 0, 0.02),
     0 6.3px 10.7px rgba(0, 0, 0, 0.028), 0 7px 15.1px rgba(0, 0, 0, 0.035),
     0 7.5px 18.8px rgba(0, 0, 0, 0.042), 0 7.8px 22.3px rgba(0, 0, 0, 0.05),
@@ -74,7 +31,6 @@
   margin-left: -60%;
   content: "";
   width: 0;
-  font-family: "work";
   height: 0;
   border-top: solid 10px #f1f1f1;
   border-left: solid 10px transparent;
@@ -90,7 +46,6 @@
   margin-left: -60%;
   content: "";
   width: 0;
-  font-family: "work";
   height: 0;
   border-bottom: solid 10px #f1f1f1;
   border-left: solid 10px transparent;
@@ -98,33 +53,30 @@
 }
 
 .shown {
-  -webkit-animation: fadeIn 0.2s;
   animation: fadeIn 0.2s;
   visibility: visible;
 }
 
 .latin_word {
-  width: -webkit-fill-available;
+  /*width: fill-available;*/
   text-align: center;
-  font-weight: 600;
   margin-bottom: -0.2rem;
   font-weight: lighter;
-  font-family: "qtr";
   font-size: 24px;
   /*height: 42px; */
   padding-bottom: 7px;
   border-bottom: 0.1px solid #cfcfcf;
 }
 
-#closebtn {
+#exitButton {
   float: right;
-  font-family: "work";
+  font-family: 'Work Sans', sans-serif;
   color: #4692e0;
   font-size: 16px;
   margin-right: 0.25rem;
 }
 
-#closebtn:hover {
+#exitButton:hover {
   color: #672929;
   cursor: pointer;
 }
@@ -134,9 +86,6 @@
   margin-bottom: 0.5rem !important;
 }
 
-.translations {
-  maargin-bottom: 1rem;
-}
 
 @-webkit-keyframes fadeIn {
   from {
@@ -156,18 +105,18 @@
   }
 }
 
-::-webkit-scrollbar {
+div.selection_bubble ::-webkit-scrollbar {
   width: 6px;
   height: 8px;
 }
-::-webkit-scrollbar-thumb {
+div.selection_bubble ::-webkit-scrollbar-thumb {
   background: linear-gradient(13deg, #ead8ed 14%, #ced2ef 64%);
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
+div.selection_bubble ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(13deg, #ced2ef 14%, #ead8ed 64%);
 }
-::-webkit-scrollbar-track {
+div.selection_bubble ::-webkit-scrollbar-track {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: inset 7px 10px 12px #f0f0f0;
