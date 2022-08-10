@@ -85,6 +85,9 @@ const createTooltip = content => {
 const renderBubble = (x, y, selection) => {
   
   tooltipWrapper.style.background = '#F1F1F1';
+  tooltipWrapper.style.fontFamily = 'Montserrat';
+  tooltipWrapper.style.color = '#78391c99';
+  tooltipWrapper.style.boxShadow = '2px 2px 11px 1px #6e6e6e78';
   tooltipWrapper.classList.add('shown');
   const transTooltip = createTooltip(selection);
   tooltipWrapper.append(transTooltip);
